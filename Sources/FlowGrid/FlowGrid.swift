@@ -180,3 +180,30 @@ extension FlowGrid {
         }
     }
 }
+
+#Preview {
+    let items = [
+        "A long name goes right here that should wrap",
+        "An Item",
+        "Orange",
+        "Banana",
+        "Stapler",
+        "Fan",
+        "Elephant gun",
+        "Bun",
+        "Orange crush soda can",
+        "Fox",
+        "Nu",
+        "Blueberry",
+        "A New Washing Machine"
+    ]
+    return Form {
+        FlowGrid(spacing: 8, alignment: .leading) {
+            ForEach(items, id: \.self) { item in
+                Text(item)
+                    .padding(8)
+                    .border(.black, width: 1)
+            }
+        }
+    }
+}
