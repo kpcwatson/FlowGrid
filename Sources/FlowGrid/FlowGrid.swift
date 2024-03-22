@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct FlowGrid {
-    struct Container {
+public struct FlowGrid {
+    public struct Container {
         static let defaultContainer = Container(width: 0, spacing: 0)
 
         let width: Double
@@ -25,7 +25,7 @@ struct FlowGrid {
             rows.append(row)
         }
 
-        struct Row {
+        public struct Row {
             let spacing: Double
             private(set) var sizes = [CGSize]()
 
@@ -50,7 +50,7 @@ struct FlowGrid {
     let spacing: Double
     let alignment: HorizontalAlignment
 
-    init(
+    public init(
         spacing: Double = 10,
         alignment: HorizontalAlignment = .center
     ) {
@@ -62,7 +62,7 @@ struct FlowGrid {
 // MARK: - Layout conformance
 extension FlowGrid: Layout {
 
-    func makeCache(
+    public func makeCache(
         subviews: Subviews
     ) -> Container {
         // can't calculate container sizes without ProposedViewSizes
@@ -72,7 +72,7 @@ extension FlowGrid: Layout {
         return Container.defaultContainer
     }
 
-    func sizeThatFits(
+    public func sizeThatFits(
         proposal: ProposedViewSize,
         subviews: Subviews,
         cache container: inout Container
@@ -92,7 +92,7 @@ extension FlowGrid: Layout {
         return size
     }
 
-    func placeSubviews(
+    public func placeSubviews(
         in bounds: CGRect,
         proposal: ProposedViewSize,
         subviews: Subviews,
